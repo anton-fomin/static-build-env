@@ -2,11 +2,17 @@
   "name": "static-build-env",
   "version": "0.0.1",
   "description": "Dynamic environment variables in static builds",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "lint": "eslint . --ext .ts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .ts --fix --ignore-path .gitignore",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version": "git add -A src",
+    "postversion" : "git push && git push --tags"
   },
   "repository": {
     "type": "git",
