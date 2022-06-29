@@ -4,15 +4,15 @@
  * @returns Either empty object or the json decoded value of the placeholder replacement
  */
 export const defineOverrides = (placeholder: string): Record<string, string> => {
-  let settings = {};
+  let settings = {}
   // The data was substituted by external tool
   if (placeholder && typeof placeholder === 'string' && placeholder.startsWith('{') && placeholder.endsWith('}')) {
     try {
-      settings = JSON.parse(placeholder);
+      settings = JSON.parse(placeholder)
     } catch (e) {
       // eslint-disable-next-line no-console
-      console.error(e);
+      console.error(e)
     }
   }
-  return Object.freeze(settings);
-};
+  return Object.freeze(settings)
+}

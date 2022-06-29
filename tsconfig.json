@@ -5,8 +5,14 @@
     "declaration": true,
     "outDir": "./lib",
     "strict": true,
-    "lib": ["ES2015", "DOM"]
+    "lib": ["ES2015", "DOM"],
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "*": ["./src/*", "./src/types/*", "@types/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "*.ts"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }

@@ -1,10 +1,10 @@
-import { defineOverrides } from '.';
+import { defineOverrides } from './index'
 
 test('decodes placeholder if it contains object', () => {
-  const json = JSON.stringify({ foo: 'bar' });
-  const overrides = defineOverrides(json);
-  expect(overrides).toStrictEqual({ foo: 'bar' });
-});
+  const json = JSON.stringify({ foo: 'bar' })
+  const overrides = defineOverrides(json)
+  expect(overrides).toStrictEqual({ foo: 'bar' })
+})
 
 test('returns empty object if placeholder is not replaced', () => {
   const overrides = defineOverrides('%__APP_ENV__%')
