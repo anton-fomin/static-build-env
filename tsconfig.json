@@ -6,13 +6,12 @@
     "outDir": "./lib",
     "strict": true,
     "lib": ["ES2015", "DOM"],
-    "composite": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
       "@/*": ["./src/*"],
       "*": ["./src/*", "./src/types/*", "@types/*"]
     }
   },
-  "include": ["src", "*.ts"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*", "**/*.test.ts"]
 }

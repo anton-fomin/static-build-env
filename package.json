@@ -8,6 +8,7 @@
     "build": "tsc",
     "test": "jest",
     "lint": "eslint . --ext .ts --fix --ignore-path .gitignore",
+    "clean": "rm -rf lib",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
