@@ -1,19 +1,19 @@
-import { defineOverrides } from './index'
+import { defineEnv } from './index'
 
 test('decodes placeholder if it contains object', () => {
   const json = JSON.stringify({ foo: 'bar' })
-  const overrides = defineOverrides(json)
+  const overrides = defineEnv(json)
   expect(overrides).toStrictEqual({ foo: 'bar' })
 })
 
 test('returns empty object if placeholder is not replaced', () => {
-  const overrides = defineOverrides('%__APP_ENV__%')
+  const overrides = defineEnv('%__APP_ENV__%')
   expect(overrides).toStrictEqual({})
 })
 
 test('logs to console and returns empty if placeholder is replaced with incorrect value', () => {
   const consoleErrorMock = jest.spyOn(global.console, 'error').mockImplementationOnce(() => {})
-  const overrides = defineOverrides('{bar}')
+  const overrides = defineEnv('{bar}')
   expect(overrides).toStrictEqual({})
   expect(consoleErrorMock).toHaveBeenCalledTimes(1)
 })
