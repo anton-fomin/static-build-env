@@ -1,10 +1,5 @@
 import { defineEnv } from './index'
 
-declare global {
-  // eslint-disable-next-line vars-on-top, no-var
-  var APP_ENV: unknown
-}
-
 test('decodes placeholder if it contains object', () => {
   const json = JSON.stringify({ foo: 'bar' })
   const overrides = defineEnv(json)
@@ -30,7 +25,7 @@ test('returns objects as is', () => {
 })
 
 test('uses global APP_ENV if called without parameters', () => {
-  global.APP_ENV = { foo: 'bar' }
+  window.APP_ENV = { foo: 'bar' }
   const result = defineEnv()
-  expect(result).toStrictEqual(APP_ENV)
+  expect(result).toStrictEqual(window.APP_ENV)
 })
